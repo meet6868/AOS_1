@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <libgen.h>
+#include <string.h>
+#include <errno.h>
+#include <stdio.h>
 
 
 void consol_out(const char* msg,bool is_Error=false){
@@ -17,7 +20,7 @@ void consol_out(const char* msg,bool is_Error=false){
         _exit(1);
     }
     else{
-        const char* info_prefix="\e[1;32mInfo : \e[0m";
+        const char* info_prefix="\e[1;33mInfo : \e[0m";
         write(2,info_prefix,strlen(info_prefix));
         write(1,msg,strlen(msg));
         write(1,"\n",1);
@@ -44,6 +47,7 @@ void check_directory_permision(const char* file_path){
     } else {
         consol_out("Current user is not the owner of the directory.", true);
     }
+    consol_out("Directory permission Checked");
 }
 
 void check_file_permision(const char* file_path){
@@ -62,6 +66,8 @@ void check_file_permision(const char* file_path){
     else{
         consol_out("Current user is not the owner of the file.", true);
     }
+    consol_out("File Existed and permission Checked");
+
 
 }
 
@@ -71,28 +77,185 @@ void file_validation_check(const char* file_name){
     check_directory_permision(file_name);
 }
 
-int main(int argc ,char* argv[]){
-    if(argc<2){
-        consol_out("Please, Enter corrcet number of arguments !!!",true);
+bool check_is_number(const char* num) {
+    for (int i = 0; num[i] != '\0'; i++) {
+        if (num[i] < '0' || num[i] > '9') {
+            return false;
+        }
+    }
+    return true;
+}
+
+void flag_validation(const char* flag_arg, int argc){
+    if (!check_is_number(flag_arg)) {
+            consol_out("Please enter flag in numeric", true);
     }
 
-    const char* input_file=argv[1];
-    file_validation_check(input_file);
-    if(argv[2]=="0"){
-        consol_out("Flag 0");
-
+    int flag=atoi(flag_arg);
+    if(flag==0){
+        if(argc!=4) consol_out("Your number of argument is not according to flag 0",true);
     }
-    else if(argv[2]=="1"){
-        consol_out("Flag 1");
+    else if(flag==1){
+        if(argc!=3) consol_out("Your number of argument is not according to flag 1",true);
     }
-
-    else if(argv[2]=="2"){
-        consol_out("Flag 2");
-
+    else if(flag==2){
+        if(argc!=5) consol_out("Your number of argument is not according to flag 2",true);
     }
     else{
         consol_out("Invalid flag. Must be 0, 1, or 2 !!!",true);
+    }
+    consol_out("Flags Validation checked");
 
+}
+
+void extra_argument_validation(int flag,char* argv[]){
+    if (flag == 0) {
+        if (!check_is_number(argv[3])) {
+            consol_out("Please enter block size in numeric", true);
+        }
+    }
+
+    if (flag == 2) {
+        if (!check_is_number(argv[3]) || !check_is_number(argv[4])) {
+            consol_out("Please enter numeric values for start and end index", true);
+        }
+        else{
+            int start_index=atoi(argv[3]);
+            int end_index=atoi(argv[4]);
+            if(start_index>end_index){
+                consol_out("Please enter numeric of start and end index like start less than equal to end index", true);
+            }
+        }
+    }
+    consol_out("Extra Argument Validation checked");
+}
+
+void safe_path_concat(char* new_path, const char* base_path, const char* extra_path) {
+    
+    strcpy(new_path, base_path);
+    if (new_path[strlen(new_path) - 1] != '/') {
+        strcat(new_path, "/");
+    }
+
+    strcat(new_path, extra_path);
+}
+
+const char* generate_output_file(const char* input_path, int flag) {
+    char* pathcopy1 = strdup(input_path);
+    char* pathcopy2 = strdup(input_path);
+    if (!pathcopy1 || !pathcopy2) {
+        perror("strdup failed");
+        _exit(1);
+    }
+
+    const char* base_dir = dirname(pathcopy1);
+    const char* base_file = basename(pathcopy2); 
+    char ass_dir[1024];
+    snprintf(ass_dir, sizeof(ass_dir), "%s/Assignment1", base_dir);
+
+    struct stat st;
+    if (stat(ass_dir, &st) == -1) {
+        if (mkdir(ass_dir, 0700) == -1) {
+            perror("mkdir failed");
+            _exit(1);
+        }
+    } else if (!S_ISDIR(st.st_mode)) {
+        consol_out("Assignment1 exists but is not a directory", true); 
+        _exit(1);
+    }
+
+
+    char file_name[512];
+    snprintf(file_name, sizeof(file_name), "%d_%s.txt", flag, base_file);
+
+    char full_path[2048];
+    snprintf(full_path, sizeof(full_path), "%s/%s", ass_dir, file_name);
+
+    int fd = open(full_path, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+    if (fd == -1) {
+        perror("file creation failed");
+        _exit(1);
+    }
+    close(fd);
+
+    char* result = (char*)malloc(strlen(full_path) + 1);
+    if (!result) {
+        perror("malloc failed");
+        _exit(1);
+    }
+    strcpy(result, full_path);
+
+    free(pathcopy1);
+    free(pathcopy2);
+
+    return result;
+}
+
+void reverse_block(char* block, int length) {
+    for (int i = 0; i < length / 2; ++i) {
+        char temp = block[i];
+        block[i] = block[length - i - 1];
+        block[length - i - 1] = temp;
+    }
+}
+
+void flag_0_operation(const char* input_file, const char* output_file, const char* BLOCK_SIZE) {
+    int block_size = atoi(BLOCK_SIZE);
+    if (block_size <= 0) {
+        consol_out("Invalid block size",true);
+        _exit(1);
+    }
+
+    int fd_in = open(input_file, O_RDONLY);
+    int fd_out = open(output_file, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+
+    off_t file_size = lseek(fd_in, 0, SEEK_END);
+    char* block = new char[block_size];
+    off_t offset = file_size;
+    int total_blocks = (file_size + block_size - 1) / block_size;
+    int current_block = 0;
+
+    while (offset > 0) {
+        int bytes_to_read = (offset >= block_size) ? block_size : offset;
+        offset -= bytes_to_read;
+        lseek(fd_in, offset, SEEK_SET);
+        read(fd_in, block, bytes_to_read);
+        current_block++;
+        if (current_block > total_blocks) current_block = total_blocks;
+
+        reverse_block(block, bytes_to_read);
+
+        write(fd_out, block, bytes_to_read);
+    }
+
+    delete[] block;
+    close(fd_in);
+    close(fd_out);
+}
+
+
+
+int main(int argc ,char* argv[]){
+    if(argc<3 ||  argc>5){
+        consol_out("Please, Enter corrcet number of arguments !!!",true);
+    }
+    else{
+        consol_out("Total Number of Argument Checked");
+
+    }
+
+    const char* input_file=argv[1];
+    
+
+    //validations
+    file_validation_check(input_file);
+    flag_validation(argv[2],argc);
+    int flag=atoi(argv[2]);
+    extra_argument_validation(flag,argv);
+    const char* output_file=generate_output_file(input_file,flag);
+
+    if(flag==0){
+        flag_0_operation(input_file,output_file,argv[3]);
     }
 
     
