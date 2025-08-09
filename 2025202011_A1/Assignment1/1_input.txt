@@ -2,9 +2,15 @@
 ;0 nruter    
 
 
+;)elif_tuptuo(tuo_losnoc    
+;)"ta elif tuptuO ta detareneG eliF uoY"(tuo_losnoc    
 
-;)"skcehC selif detadilav uoY"(tuo_losnoc    
-
+}    
+;)dne,trats,elif_tuptuo,elif_tupni(noitarepo_2_galf        
+ ;)elif_tupni,dne,trats(noitadilav_tnemugra_artxe_2_galf        
+;)]4[vgra(iota=dne tni        
+;)]3[vgra(iota=trats tni        
+{)2==galf(fi esle    
 }    
 ;)elif_tuptuo,elif_tupni(noitarepo_1_galf        
 {)1==galf(fi esle    
@@ -29,65 +35,233 @@ snoitadilav//
 ;)eurt,"!!! stnemugra fo rebmun tecrroc retnE ,esaelP"(tuo_losnoc        
 {)5>cgra  || 3<cgra(fi    
 {)][vgra *rahc, cgra tni(niam tni
+}
+;)tuo_df(esolc    
+;)ni_df(esolc    
+;kcolb ][eteled    
+
+}    
+;daer_ot_setyb =+ s        
+}        
+;kaerb            
+;)"elif tuptuo ot gnitirw rorrE"(rorrep            
+{ )daer_setyb =! nettirw_setyb( fi        
+;)daer_setyb ,kcolb ,tuo_df(etirw = nettirw_setyb t_eziss        
+
+}        
+;kaerb            
+;)"elif tupni morf gnidaer rorrE"(rorrep            
+{ )daer_ot_setyb =! daer_setyb( fi        
+;)daer_ot_setyb ,kcolb ,ni_df(daer = daer_setyb t_eziss        
+;)s - ezis_elif( : ezis_kcolb ? )ezis_kcolb => s - ezis_elif( = daer_ot_setyb tni        
+{ )ezis_elif < s( elihw    
+}    
+;)"elif tupni ni gnikees rorrE"(rorrep        
+{ )1- == )TES_KEES ,s ,ni_df(keesl( fi    
+;dne = s    
+
+}    
+;)1(peels        
+;)skcolb_latot ,kcolb_tnerruc(rab_ssergorp_etadpu        
+;skcolb_latot = kcolb_tnerruc )skcolb_latot > kcolb_tnerruc( fi        
+;++kcolb_tnerruc        
+
+}        
+;kaerb            
+;)"elif tuptuo ot gnitirw rorrE"(rorrep            
+{ )daer_setyb =! nettirw_setyb( fi        
+;)daer_setyb ,kcolb ,tuo_df(etirw = nettirw_setyb t_eziss        
+
+;)daer_setyb ,kcolb(kcolb_esrever        
+
+}        
+;kaerb            
+;)"elif tupni morf gnidaer rorrE"(rorrep            
+{ )daer_ot_setyb =! daer_setyb( fi        
+;)daer_ot_setyb ,kcolb ,ni_df(daer = daer_setyb t_eziss        
+
+}        
+;kaerb            
+;)"elif tupni ni gnikees rorrE"(rorrep            
+{ )1- == )TES_KEES ,tesffo ,ni_df(keesl( fi        
+;daer_ot_setyb =- tesffo        
+;)trats - tesffo( : ezis_kcolb ? )ezis_kcolb => trats - tesffo( = daer_ot_setyb tni        
+{ )trats > tesffo( elihw    
+
+;0 = kcolb_tnerruc tni    
+;++skcolb_latot )0 =! ezis_kcolb % ezis_elif( fi    
+;ezis_kcolb / ezis_elif = skcolb_latot tni    
+;trats - dne = setyb_latot tni    
+;dne = tesffo t_ffo    
+    
+
+}    
+;daer_ot_setyb =+ s        
+}        
+;kaerb            
+;)"elif tuptuo ot gnitirw rorrE"(rorrep            
+{ )daer_setyb =! nettirw_setyb( fi        
+;)daer_setyb ,kcolb ,tuo_df(etirw = nettirw_setyb t_eziss        
+
+}        
+;kaerb            
+;)"elif tupni morf gnidaer rorrE"(rorrep            
+{ )daer_ot_setyb =! daer_setyb( fi        
+;)daer_ot_setyb ,kcolb ,ni_df(daer = daer_setyb t_eziss        
+;)s - trats( : ezis_kcolb ? )ezis_kcolb => s - trats( = daer_ot_setyb tni        
+{ )trats < s( elihw    
+;0 = s t_ffo    
+}    
+;)"elif tupni ni gnikees rorrE"(rorrep        
+{ )1- == )TES_KEES ,0 ,ni_df(keesl( fi    
+;]ezis_kcolb[rahc wen = kcolb *rahc    
+;652 = ezis_kcolb tni    
+
+}    
+;)1(tixe_        
+;)tuo_df(esolc        
+;)ni_df(esolc        
+;)"keesl htiw ezis elif gnitteg rorrE"(rorrep        
+{ )1- == ezis_elif( fi    
+;)DNE_KEES ,0 ,ni_df(keesl = ezis_elif t_ffo    
+
+}    
+;)1(tixe_        
+;)ni_df(esolc        
+;)"elif tuptuo gnitaerc/gninepo rorrE"(rorrep        
+{ )0 < tuo_df( fi    
+;)0060 ,CNURT_O | TAERC_O | YLNORW_O ,elif_tuptuo(nepo = tuo_df tni    
+
+}    
+;)1(tixe_        
+;)"elif tupni gninepo rorrE"(rorrep        
+{ )0 < ni_df( fi    
+;)YLNODR_O ,elif_tupni(nepo = ni_df tni    
+{)dne tni ,trats tni,elif_tuptuo *rahc tsnoc ,elif_tupni *rahc tsnoc(noitarepo_2_galf diov
 
 }
-
 ;)tuo_df(esolc    
 ;)ni_df(esolc    
 ;kcolb ][eteled    
 
 }    
 ;)1(peels        
-;)daer_ot_setyb ,kcolb ,tuo_df(etirw        
-;)daer_ot_setyb ,kcolb(kcolb_esrever        
-        
 ;)skcolb_latot ,kcolb_tnerruc(rab_ssergorp_etadpu        
 ;skcolb_latot = kcolb_tnerruc )skcolb_latot > kcolb_tnerruc( fi        
 ;++kcolb_tnerruc        
-;)daer_ot_setyb ,kcolb ,ni_df(daer        
-;)TES_KEES ,tesffo ,ni_df(keesl        
+
+}        
+;kaerb            
+;)"elif tuptuo ot gnitirw rorrE"(rorrep            
+{ )daer_setyb =! nettirw_setyb( fi        
+;)daer_setyb ,kcolb ,tuo_df(etirw = nettirw_setyb t_eziss        
+
+;)daer_setyb ,kcolb(kcolb_esrever        
+
+}        
+;kaerb            
+;)"elif tupni morf gnidaer rorrE"(rorrep            
+{ )daer_ot_setyb =! daer_setyb( fi        
+;)daer_ot_setyb ,kcolb ,ni_df(daer = daer_setyb t_eziss        
+
+}        
+;kaerb            
+;)"elif tupni ni gnikees rorrE"(rorrep            
+{ )1- == )TES_KEES ,tesffo ,ni_df(keesl( fi        
 ;daer_ot_setyb =- tesffo        
 ;tesffo : ezis_kcolb ? )ezis_kcolb => tesffo( = daer_ot_setyb tni        
 { )0 > tesffo( elihw    
 
 ;0 = kcolb_tnerruc tni    
-;ezis_kcolb / )1 - ezis_kcolb + ezis_elif( = skcolb_latot tni    
+;++skcolb_latot )0 =! ezis_kcolb % ezis_elif( fi    
+;ezis_kcolb / ezis_elif = skcolb_latot tni    
 
 ;]ezis_kcolb[rahc wen = kcolb *rahc    
 ;652 = ezis_kcolb tni    
 ;ezis_elif = tesffo t_ffo    
+}    
+;)1(tixe_        
+;)tuo_df(esolc        
+;)ni_df(esolc        
+;)"keesl htiw ezis elif gnitteg rorrE"(rorrep        
+{ )1- == ezis_elif( fi    
 ;)DNE_KEES ,0 ,ni_df(keesl = ezis_elif t_ffo    
 
+}    
+;)1(tixe_        
+;)ni_df(esolc        
+;)"elif tuptuo gnitaerc/gninepo rorrE"(rorrep        
+{ )0 < tuo_df( fi    
 ;)0060 ,CNURT_O | TAERC_O | YLNORW_O ,elif_tuptuo(nepo = tuo_df tni    
+
+}    
+;)1(tixe_        
+;)"elif tupni gninepo rorrE"(rorrep        
+{ )0 < ni_df( fi    
 ;)YLNODR_O ,elif_tupni(nepo = ni_df tni    
 {)elif_tuptuo *rahc tsnoc ,elif_tupni *rahc tsnoc(noitarepo_1_galf diov
 
 }
+
 ;)tuo_df(esolc    
 ;)ni_df(esolc    
 ;kcolb ][eteled    
 
 }    
 ;)1(peels        
-;)daer_ot_setyb ,kcolb ,tuo_df(etirw        
-;)daer_ot_setyb ,kcolb(kcolb_esrever        
 
 ;)skcolb_latot ,kcolb_tnerruc(rab_ssergorp_etadpu        
 ;skcolb_latot = kcolb_tnerruc )skcolb_latot > kcolb_tnerruc( fi        
 ;++kcolb_tnerruc        
-;)daer_ot_setyb ,kcolb ,ni_df(daer        
-;)TES_KEES ,tesffo ,ni_df(keesl        
+
+}        
+;kaerb            
+;)"elif tuptuo ot gnitirw rorrE"(rorrep            
+{ )daer_setyb =! nettirw_setyb( fi        
+;)daer_setyb ,kcolb ,tuo_df(etirw = nettirw_setyb t_eziss        
+
+;)daer_setyb ,kcolb(kcolb_esrever        
+
+}        
+;kaerb            
+;)"elif tupni morf gnidaer rorrE"(rorrep            
+{ )daer_ot_setyb =! daer_setyb( fi        
+;)daer_ot_setyb ,kcolb ,ni_df(daer = daer_setyb t_eziss        
+
+}        
+;kaerb            
+;)"elif tupni ni gnikees rorrE"(rorrep            
+{ )1- == )TES_KEES ,tesffo ,ni_df(keesl( fi        
+
 ;daer_ot_setyb =- tesffo        
 ;tesffo : ezis_kcolb ? )ezis_kcolb => tesffo( = daer_ot_setyb tni        
 { )0 > tesffo( elihw    
 
 ;0 = kcolb_tnerruc tni    
-;ezis_kcolb / )1 - ezis_kcolb + ezis_elif( = skcolb_latot tni    
+;++skcolb_latot )0 =! ezis_kcolb % ezis_elif( fi    
+;ezis_kcolb / ezis_elif = skcolb_latot tni    
 ;ezis_elif = tesffo t_ffo    
 ;]ezis_kcolb[rahc wen = kcolb *rahc    
+
+}    
+;)1(tixe_        
+;)tuo_df(esolc        
+;)ni_df(esolc        
+;)"keesl htiw ezis elif gnitteg rorrE"(rorrep        
+{ )1- == ezis_elif( fi    
 ;)DNE_KEES ,0 ,ni_df(keesl = ezis_elif t_ffo    
 
+}    
+;)1(tixe_        
+;)ni_df(esolc        
+;)"elif tuptuo gnitaerc/gninepo rorrE"(rorrep        
+{ )0 < tuo_df( fi    
 ;)0060 ,CNURT_O | TAERC_O | YLNORW_O ,elif_tuptuo(nepo = tuo_df tni    
+
+}    
+;)1(tixe_        
+;)"elif tupni gninepo rorrE"(rorrep        
+{ )0 < ni_df( fi    
 ;)YLNODR_O ,elif_tupni(nepo = ni_df tni    
 
 }    
@@ -99,6 +273,7 @@ snoitadilav//
 
 }
 ;)ONELIF_TUODTS(cnysf    
+;)1,"n\",1(etirw    
 ;)nel ,ffub ,ONELIF_TUODTS(etirw    
 
 ;)001 * rep ,"%%f0.3% " ,nel - )ffub(foezis ,nel + ffub(ftnirpns =+ nel    
@@ -141,11 +316,29 @@ snoitadilav//
 { )1- == df( fi    
 ;)0060 ,CNURT_O | YLNORW_O | TAERC_O ,htap_lluf(nepo = df tni    
 
-;)eman_elif ,rid_ssa ,"s%/s%" ,)htap_lluf(foezis ,htap_lluf(ftnirpns    
-;]8402[htap_lluf rahc    
+;)eman_elif ,rid_ssa ,htap_lluf(htap_enibmoc    
+}    
+;)1(tixe_        
+;)"deliaf collam"(rorrep        
+{ )htap_lluf!( fi    
+;)ezis_htap_lluf(collam)*rahc(=htap_lluf *rahc    
+;2 + )eman_elif(nelrts + )rid_ssa(nelrts=ezis_htap_lluf tni    
+    
+    
+;)elif_esab ,eman_elif(gnirts_tacnoc    
+;)"_" ,eman_elif(gnirts_tacnoc    
+;)rts_galf ,eman_elif(gnirts_tacnoc    
 
-;)elif_esab ,galf ,"s%_d%" ,)eman_elif(foezis ,eman_elif(ftnirpns    
-;]215[eman_elif rahc    
+;'0\' = ]0[eman_elif    
+;'0\' = ]1[rts_galf    
+;galf + '0' = ]0[rts_galf    
+;]2[rts_galf rahc    
+}    
+;)1(tixe_        
+;)"deliaf collam"(rorrep        
+{ )eman_elif!( fi    
+;)nel(collam)*rahc( = eman_elif *rahc    
+;3 + )elif_esab(nelrts = nel tni    
 
 
 }    
@@ -159,7 +352,7 @@ snoitadilav//
 { )1- == )ts& ,rid_ssa(tats( fi    
 ;ts tats tcurts    
 
-;)rid_esab ,"1tnemngissA/s%" ,)rid_ssa(foezis ,rid_ssa(ftnirpns    
+;)"1tnemngissA" ,rid_esab ,rid_ssa(htap_enibmoc    
 ;]4201[rid_ssa rahc    
  ;)htap(emanesab = elif_esab *rahc tsnoc    
 ;)htap(emanrid = rid_esab *rahc tsnoc    
@@ -173,6 +366,29 @@ snoitadilav//
 { )galf tni ,htap_tupni *rahc tsnoc(elif_tuptuo_etareneg *rahc tsnoc
 
 }
+;)"dekcehC noitadilav tnemugra artxe 2 galF"(tuo_losnoc    
+}    
+;)eurt ,"!xedni dnE naht ssel eb tsum xedni tratS"(tuo_losnoc        
+{)dne => trats(fi    
+
+}    
+;)eurt ,"!htgnel elif sdeecxe xedni dnE"(tuo_losnoc        
+{)ezis_elif > dne(fi    
+
+;)ni_df(esolc    
+;)DNE_KEES ,0 ,ni_df(keesl = ezis_elif t_ffo    
+
+}    
+;)1(tixe_        
+;)eurt ,"xedni dne etadilav ot elif gninepo rorrE"(tuo_losnoc        
+{)0 < ni_df(fi    
+;)YLNODR_O ,eman_elif(nepo = ni_df tni    
+}    
+;)eurt,"1!! 0 naht retarg eb tsum xedni tratS"(tuo_losnoc        
+{)0<trats(fi    
+{)eman_elif *rahc tsnoc,dne tni,trats tni(noitadilav_tnemugra_artxe_2_galf diov
+
+}
 ;)"dekcehc noitadilaV tnemugrA artxE"(tuo_losnoc    
 }    
 }        
@@ -183,13 +399,13 @@ snoitadilav//
 ;)]3[vgra(iota=xedni_trats tni            
 {esle        
 }        
-;)eurt ,"xedni dne dna trats rof seulav ciremun retne esaelP"(tuo_losnoc            
+;)eurt ,"xedni dne dna trats rof seulav ciremun evitisop retne esaelP"(tuo_losnoc            
 { ))]4[vgra(rebmun_si_kcehc! || )]3[vgra(rebmun_si_kcehc!( fi        
 { )2 == galf( fi    
 
 }    
 }        
-;)eurt ,"ciremun ni ezis kcolb retne esaelP"(tuo_losnoc            
+;)eurt ,"ciremun evitisop ni ezis kcolb retne esaelP"(tuo_losnoc            
 { ))]3[vgra(rebmun_si_kcehc!( fi        
 { )0 == galf( fi    
 {)][vgra *rahc,galf tni(noitadilav_tnemugra_artxe diov
@@ -292,13 +508,42 @@ snoitadilav//
 {)eslaf=rorrE_si loob,gsm *rahc tsnoc(tuo_losnoc diov
 
 }
+;)nel_xam ,eman_elif ,htap(gnirts_tacnoc    
+
+}    
+;)nel_xam ,"/" ,htap(gnirts_tacnoc        
+{ )'/' =! ]1 - nel[htap && 0 > nel( fi    
+
+;++nel )'0\' =! ]nel[htap( elihw    
+;0 = nel tni    
+dedeen fi '/' ddA //    
+
+;)nel_xam ,rid_esab ,htap(gnirts_tacnoc    
+
+gnirts ytpme htiw tratS //  ;'0\' = ]0[htap    
+{ )6904 = nel_xam tni ,eman_elif *rahc tsnoc ,rid_esab *rahc tsnoc ,htap *rahc(htap_enibmoc diov
+
+}
+;'0\'=]i[s_wen    
+}    
+;++j        
+;++i        
+;]j[s_dlo=]i[s_wen        
+{)'0\'=!]j[s_dlo && 1-nel_xam<i(elihw    
+;0=j tni    
+
+;++i )'0\'=!]i[s_wen && 1-nel_xam<i( elihw    
+;0=i tni    
+{)8404=nel_xam tni ,s_dlo *rahc tsnoc,s_wen *rahc(gnirts_tacnoc diov
+
+}
  ;'0\' = ]i[s_wen    
 }    
 ;++i        
-;]i[S_dlo = ]i[s_wen        
-{ )'0\' =! ]i[S_dlo && 1 - nel_xam < i( elihw    
+;]i[s_dlo = ]i[s_wen        
+{ )'0\' =! ]i[s_dlo && 1 - nel_xam < i( elihw    
 ;0 = i tni    
-{ )8404=nel_xam tni ,S_dlo *rahc tsnoc ,s_wen *rahc(gnirts_ypoc diov
+{ )8404=nel_xam tni ,s_dlo *rahc tsnoc ,s_wen *rahc(gnirts_ypoc diov
 
 >h.oidts< edulcni#
 >h.onrre< edulcni#
